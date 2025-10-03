@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+form {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+input,
+textarea {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: 0;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+li {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+.muted {
+  color: #616161;
+  font-size: 0.9rem;
+}
+.danger {
+  background: #c62828;
+}
+.secondary {
+  background: #455a64;
+}
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}

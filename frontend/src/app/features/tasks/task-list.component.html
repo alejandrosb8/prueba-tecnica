@@ -1,0 +1,41 @@
+<header>
+  <h2>Tareas</h2>
+  <div class="actions">
+    <button class="secondary" (click)="refresh()" [disabled]="loading()">Refrescar</button>
+    @if (loading()) { <span class="muted">Actualizando…</span> }
+    <button class="danger" (click)="logout()">Salir</button>
+  </div>
+</header>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div>
+    <input type="text" placeholder="Título" formControlName="title" />
+    <textarea rows="2" placeholder="Descripción" formControlName="description"></textarea>
+  </div>
+  <button type="submit" [disabled]="form.invalid || loading()">
+    {{ editingId() ? 'Actualizar' : 'Añadir' }}
+  </button>
+  @if (loading()) { <span class="muted">Guardando…</span> }
+</form>
+@if (error()) {
+<p class="muted">{{ error() }}</p>
+} @if (loading()) {
+<p>Cargando...</p>
+} @else {
+<ul>
+  @for (t of tasks(); track t.id) {
+  <li>
+    <div class="row">
+      <strong>{{ t.title }}</strong>
+    </div>
+    @if (t.description) {
+    <div class="muted">{{ t.description }}</div>
+    }
+    <div class="row">
+      <button (click)="edit(t)">Editar</button>
+      <button class="danger" (click)="remove(t)">Eliminar</button>
+    </div>
+  </li>
+  }
+</ul>
+}

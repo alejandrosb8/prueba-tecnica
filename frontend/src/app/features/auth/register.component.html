@@ -1,0 +1,15 @@
+<h2>Registro</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Email
+    <input type="email" formControlName="email" placeholder="tu@email.com" />
+  </label>
+  <label>
+    Password
+    <input type="password" formControlName="password" placeholder="********" />
+  </label>
+  @if (error()) {<div class="error">{{ error() }}</div>}
+  <button type="submit" [disabled]="form.invalid || loading()">Crear cuenta</button>
+  @if (loading()) { <div class="muted">Procesando...</div> }
+</form>
+<p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>

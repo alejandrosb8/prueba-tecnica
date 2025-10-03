@@ -1,0 +1,15 @@
+<h2>Iniciar sesión</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Email
+    <input type="email" formControlName="email" placeholder="tu@email.com" />
+  </label>
+  <label>
+    Password
+    <input type="password" formControlName="password" placeholder="********" />
+  </label>
+  @if (error()) {<div class="error">{{ error() }}</div>}
+  <button type="submit" [disabled]="form.invalid || loading()">Entrar</button>
+  @if (loading()) { <div class="muted">Procesando...</div> }
+</form>
+<p>¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>

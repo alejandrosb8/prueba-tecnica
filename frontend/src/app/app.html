@@ -1,0 +1,12 @@
+<nav class="main-nav">
+  @if (isLoggedIn()) {
+    <a routerLink="/tasks" routerLinkActive="active">Tareas</a>
+    <span class="user-chip" title="Usuario actual">{{ userEmail() }}</span>
+    <button class="logout" type="button" (click)="logout()">Salir</button>
+  } @else {
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/register" routerLinkActive="active">Registro</a>
+  }
+</nav>
+
+<router-outlet />
